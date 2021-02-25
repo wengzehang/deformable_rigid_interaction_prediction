@@ -1,0 +1,1 @@
+pip install numpy open3d h5py graph_nets "tensorflow>=2.1.0-rc1" "dm-sonnet>=2.0.0b0" tensorflow_probability
