@@ -8,6 +8,11 @@ This dataset contains 20 different tasks for four actions:
 * Opening the bag
 * Lifting the bag
 
+For each task, we simulate 1,000 6-sec trajectories, and record the scene state 10 times per second, 
+which results in 60,000 recorded time steps.
+The simulated task data is split into training (80\%), validation (10\%), and test set (10\%).
+We vary actions and task parameters to create data for 20 different tasks.
+
 The complete dataset can be downloaded here: INSERT LINK
 
 ## Tasks
@@ -46,7 +51,6 @@ The following parameters differentiate the tasks:
 | numRigid           | Number of rigid objects in the scene, without counting the sphere effector. Use it to filter the position of rigid objects.                    | (100,)             |
 | posRigid           | Position and radius of the free sphere. Only the first "numRigid" pose are valid.                                                              | (100, 61, 10, 4)   |
 | veloRigid          | Velocity of rigid sphere in Unity.                                                                                                             | (100, 61, 10, 3)   |
-| posWall            | Deprecated. Position and pose of the wall and the floor.                                                                                       | (100, 61, 5, 9)    |
 | ballinside         | Number of sphere inside the bag.                                                                                                               | (100,)             |
 | posEffector        | Position and radius of the sphere effector. Only valid in the pushing action task.                                                             | (100, 61, 1, 4)    |
 | graspnum_l         | Number of grasped points for the first handle. Only valid when the left handle is not released.                                                | (100, 61)          |
@@ -54,7 +58,7 @@ The following parameters differentiate the tasks:
 | graspind_l         | The indices of grasped vertices of the left handle. Only valid if left handle is not released. Only first "graspnum_l" indices are avaliable.  | (100, 61, 20)      |
 | graspind_r         | The indices of grasped vertices of the right handle. Only valid if right handle is not released.Only first "graspnum_r" indices are avaliable. | (100, 61, 20)      |
 | circleclock        | Closewise or Anticlosewise. Only valid when the left handle is with circular motion.                                                           | (100,)             |
-| circletype         | Circular type of the motion. We drawing circle in different coordinate planes.                                                        | (100,)             |
+| circletype         | Circular type of the motion. We drawing circle in different coordinate planes.                                                                 | (100,)             |
 | initSpeedEffector  | Speed of effetcor. Only valid in the pushing action task.                                                                                      | (100,)             |
 | initPosEffector    | The position and radius of creating sphere effector.                                                                                           | (100, 1, 4)        |
 | sampleflag         | The way of creating the sphere effector. 0 is near xxx, 1 is near xxx. Only valid in the pushing action task.                                  | (100,)             |
@@ -62,5 +66,11 @@ The following parameters differentiate the tasks:
 | initActEffector    | Deprecated key.                                                                                                                                | (100, 1, 3)        |
 | circlemode         | Deprecated key.                                                                                                                                | (100,)             |
 | gripperspeed       | Deprecated key.                                                                                                                                | (100,)             |
+| posWall            | Deprecated key.                                                                                                                                | (100, 61, 5, 9)    |
 
+## Circle Motion Label Mapping
+
+## Sample Flag mapping
+
+## Towards Flag mapping
 
