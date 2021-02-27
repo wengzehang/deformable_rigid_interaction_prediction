@@ -34,3 +34,33 @@ The following parameters differentiate the tasks:
 
 
  
+## H5 dataset key for each task
+| H5 key name        | Description                                                                                                                                    | Shape              |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| randomname         | Random name for every trajectory.                                                                                                              | (100,)             |
+| clothid            | Id of the bag object. We provide one bag with a fixed index "20".                                                                              | (100,)             |
+| clothmaterial_bend | Unity Obi bending parameter for the bag material. 0.1 for soft, 0.01 for stiff.                                                                | (100,)             |
+| clothmaterial_dist | Unity Obi distance parameter for the bag material.                                                                                             | (100,)             |
+| posCloth           | 3D Position of bag mesh vertices.                                                                                                              | (100, 61, 1277, 3) |
+| veloCloth          | Velocity of bag vertices in Unity.                                                                                                             | (100, 61, 1277, 3) |
+| numRigid           | Number of rigid objects in the scene, without counting the sphere effector. Use it to filter the position of rigid objects.                    | (100,)             |
+| posRigid           | Position and radius of the free sphere. Only the first "numRigid" pose are valid.                                                              | (100, 61, 10, 4)   |
+| veloRigid          | Velocity of rigid sphere in Unity.                                                                                                             | (100, 61, 10, 3)   |
+| posWall            | Deprecated. Position and pose of the wall and the floor.                                                                                       | (100, 61, 5, 9)    |
+| ballinside         | Number of sphere inside the bag.                                                                                                               | (100,)             |
+| posEffector        | Position and radius of the sphere effector. Only valid in the pushing action task.                                                             | (100, 61, 1, 4)    |
+| graspnum_l         | Number of grasped points for the first handle. Only valid when the left handle is not released.                                                | (100, 61)          |
+| graspnum_r         | Number of grasped points for the first handle. Only valid when the right handle is not released.                                               | (100, 61)          |
+| graspind_l         | The indices of grasped vertices of the left handle. Only valid if left handle is not released. Only first "graspnum_l" indices are avaliable.  | (100, 61, 20)      |
+| graspind_r         | The indices of grasped vertices of the right handle. Only valid if right handle is not released.Only first "graspnum_r" indices are avaliable. | (100, 61, 20)      |
+| circleclock        | Closewise or Anticlosewise. Only valid when the left handle is with circular motion.                                                           | (100,)             |
+| circletype         | Circular type of the motion. We drawing circle in different coordinate planes.                                                        | (100,)             |
+| initSpeedEffector  | Speed of effetcor. Only valid in the pushing action task.                                                                                      | (100,)             |
+| initPosEffector    | The position and radius of creating sphere effector.                                                                                           | (100, 1, 4)        |
+| sampleflag         | The way of creating the sphere effector. 0 is near xxx, 1 is near xxx. Only valid in the pushing action task.                                  | (100,)             |
+| towardsflag        | The target of effector pushing. 0 is towards xxx, 1 is towards xxx. Only valid in the pushing action task.                                     | (100,)             |
+| initActEffector    | Deprecated key.                                                                                                                                | (100, 1, 3)        |
+| circlemode         | Deprecated key.                                                                                                                                | (100,)             |
+| gripperspeed       | Deprecated key.                                                                                                                                | (100,)             |
+
+
