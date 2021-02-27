@@ -19,7 +19,18 @@ The following parameters differentiate the tasks:
 * Controlled Object: Which object is actively manipulated during the action?
 * Action: Which action is executed?
 
-Bag Stiffness | Bag Content   | Left Handle State | Right Handle State | Controlled Object | Action
-------------- | ------------- | ----------------- | ------------------ | ----------------- | ------
+| Task id | Bag Stiffness | Bag Content   | Left Handle State | Right Handle State | Controlled Object | Action                 |
+|---------|---------------|---------------|-------------------|--------------------|-------------------|------------------------|
+| 1/11    | Soft/Stiff    | Object Inside | Fixed             | Fixed              | Sphere            | Pushing an Object      |
+| 2/12    | Soft/Stiff    | Empty         | Fixed             | Fixed              | Sphere            | Pushing an Object      |
+| 3/13    | Soft/Stiff    | Object Inside | Moving            | Fixed              | Left Hand         | Circular Handle Motion |
+| 4/14    | Soft/Stiff    | Empty         | Moving            | Fixed              | Left Hand         | Circular Handle Motion |
+| 5/15    | Soft/Stiff    | Object Inside | Moving            | Released           | Left Hand         | Circular Handle Motion |
+| 6/16    | Soft/Stiff    | Empty         | Moving            | Released           | Left Hand         | Circular Handle Motion |
+| 7/17    | Soft/Stiff    | Object Inside | Moving            | Fixed              | Left Hand         | Opening the Bag        |
+| 8/18    | Soft/Stiff    | Empty         | Moving            | Fixed              | Left Hand         | Opening the Bag        |
+| 9/19    | Soft/Stiff    | Object Inside | Moving            | Released           | Left Hand         | Lifting the Bag        |
+| 10/20   | Soft/Stiff    | Empty         | Moving            | Released           | Left Hand         | Lifting the Bag        |
+
 
  
