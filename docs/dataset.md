@@ -8,6 +8,8 @@ This dataset contains 20 different tasks for four actions:
 * Opening the bag
 * Lifting the bag
 
+The complete dataset can be downloaded here: INSERT LINK
+
 ## Tasks
 
 The following parameters differentiate the tasks:
@@ -16,5 +18,8 @@ The following parameters differentiate the tasks:
 * Left/Right Handle State: Is the handle fixed in place, released or moved along a trajectory?
 * Controlled Object: Which object is actively manipulated during the action?
 * Action: Which action is executed?
+
+Bag Stiffness | Bag Content   | Left Handle State | Right Handle State | Controlled Object | Action
+------------- | ------------- | ----------------- | ------------------ | ----------------- | ------
 
  
