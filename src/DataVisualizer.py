@@ -254,19 +254,29 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Visualize the training dataset for specific task.')
     parser.add_argument('--task_index', help='Specify the dataset id you want to visualize.',
                         type=int, default=12)
+    parser.add_argument('--set_name', type=str, default=None)
     # parser.add_argument('--frame_step', type=int, default=1)
 
     args, _ = parser.parse_known_args()
 
+    subset = Datasets.Subset.from_name(args.set_name)
+    if subset is None:
+        raise ValueError(f"Subset with name '{args.set_name}' is unknown")
+
     # parse the directory to the dataset
     tasks_path = "./h5data/tasks"
     task = Datasets.get_task_by_index(args.task_index)
-    path_to_dataset = task.path_to_dataset(tasks_path, Datasets.Subset.Training)
-    path_to_topodict = task.path_to_topodict(tasks_path, Datasets.Subset.Training)
+    path_to_dataset = task.path_to_dataset(tasks_path, subset)
+    path_to_topodict = task.path_to_topodict(tasks_path, subset)
     useeffector = task.effector_motion
+
+
 
     # load the data
     data = SimulatedData.SimulatedData.load(path_to_topodict, path_to_dataset)
+
+
+    print(args.task_index)
 
     scenario_index = 0
     keypoint_indices = SimulatedData.keypoint_indices

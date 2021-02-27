@@ -310,12 +310,6 @@ if __name__ == '__main__':
 
     args, _ = parser.parse_known_args()
 
-
-    if args.set_name is None:
-        subsets = [s.filename() for s in Datasets.Subset]
-    else:
-        subsets = [args.set_name]
-
     max_scenarios = args.max_scenarios
 
     tasks_path = "./h5data/tasks"
@@ -341,6 +335,7 @@ if __name__ == '__main__':
     model_name = args.model
     model = create_prediction_model(model_name, models_root_path)
 
+    print(args.task_index)
     #
     evaluation_visual = Evaluation_Visual(model, max_scenarios=max_scenarios, useeffector=useeffector)
     data_vis = evaluation_visual.evaluate(dataset)
