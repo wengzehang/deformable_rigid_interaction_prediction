@@ -307,6 +307,7 @@ if __name__ == '__main__':
     parser.add_argument('--max_scenarios', type=int, default=10)
     parser.add_argument('--set_name', type=str, default=None)
     parser.add_argument('--task_index', type=int, default=1)
+    parser.add_argument('--demo', type=bool, default=False)
 
     args, _ = parser.parse_known_args()
 
@@ -316,6 +317,7 @@ if __name__ == '__main__':
 
     print("Chosen task:", args.task_index)
     task = Datasets.get_task_by_index(args.task_index)
+    task.isdemo = args.demo
     useeffector = task.effector_motion
 
     subset = Datasets.Subset.from_name(args.set_name)

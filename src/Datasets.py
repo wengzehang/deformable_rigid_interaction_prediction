@@ -141,6 +141,7 @@ class TaskDataset:
         self.left_hand_motion = left_hand_motion
         self.right_hand_motion = right_hand_motion
         self.effector_motion = effector_motion
+        self.isdemo = False
 
     def action(self):
         if self.effector_motion == EffectorMotion.Ball:
@@ -154,9 +155,12 @@ class TaskDataset:
         raise NotImplementedError("Could not determine action for task", self)
 
     def filename(self, subset: Subset) -> str:
-        return f"s{self.index}_{self.bag_stiffness.filename()}_{self.bag_content.filename()}_" + \
-               f"{self.left_hand_motion.filename()}_{self.right_hand_motion.filename()}_" + \
-               f"{self.effector_motion.filename()}_{subset.filename()}.h5"
+        if self.isdemo == True:
+            return f"s{self.index}_{subset.filename()}.h5"
+        else:
+            return f"s{self.index}_{self.bag_stiffness.filename()}_{self.bag_content.filename()}_" + \
+                   f"{self.left_hand_motion.filename()}_{self.right_hand_motion.filename()}_" + \
+                   f"{self.effector_motion.filename()}_{subset.filename()}.h5"
 
     def path_to_dataset(self, root_path: str, subset: Subset) -> str:
         return os.path.join(root_path, self.filename(subset))
