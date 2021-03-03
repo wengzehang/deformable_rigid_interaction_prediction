@@ -27,3 +27,64 @@ By chaining these models recursively together, we make predictions for any time 
 mix-horizon model with the one-stage/two-stage model, and show the benefits of mix-horizon strategy.
 
 ![mix-horizon prediction model](figures/mix-horizon-prediction.png)
+
+## Usage
+### Prepare the dataset
+Make sure you have downloaded the h5 and topo files and placed them in src/h5data/tasks.
+```
+.
+├── docs
+├── ...
+└── src
+    ├── Datasets.py
+    ├── ...
+    ├── h5data
+        ├── tasks
+            ├── topo_train.pkl
+            ├── topo_valid.pkl
+            ├── topo_test.pkl
+            ├── s1_soft_ballin_f_f_ballmove_train.h5
+            ├── s1_soft_ballin_f_f_ballmove_valid.h5
+            ├── s1_soft_ballin_f_f_ballmove_test.h5
+            ├── ...
+
+
+
+```
+
+### Train the modules
+Train PPM module with horizon ***[h]*** on task ***[taskid]***
+``` 
+python ModelTraining.py --spec motion --frame_step [h] --task_index [taskid]
+```
+Train APM module with horizon ***[h]*** on task ***[taskid]***
+```
+python ModelTraining.py --spec has_moved --frame_step [h] --task_index [taskid]
+```
+
+### Evaluation the trained models on the test set
+```
+# one-stage
+python Evaluation.py --model one-stage --set_name test --task_index [taskid]
+# two-stage
+python Evaluation.py --model two-stage --set_name test --task_index [taskid]
+# mix-horizon
+python Evaluation.py --model mix-horizon --set_name test --task_index [taskid]
+```
+
+### Visualization
+Visualize the test set on task ***[taskid]***
+```
+python DataVisualizer.py --task_index [taskid] --set_name test
+```
+
+Visualize the predicting result on test set of task ***[taskid]***
+
+```
+# one-stage
+python ValidVisualizer.py --task_index 1 --set_name test --model one-stage
+# two-stage
+python ValidVisualizer.py --task_index 1 --set_name test --model two-stage
+# mix-horizon
+python ValidVisualizer.py --task_index 1 --set_name test --model horizon
+```
