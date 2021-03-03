@@ -57,20 +57,34 @@ The following parameters differentiate the tasks:
 | graspnum_r         | Number of grasped points for the first handle. Only valid when the right handle is not released.                                               | (100, 61)          |
 | graspind_l         | The indices of grasped vertices of the left handle. Only valid if left handle is not released. Only first "graspnum_l" indices are avaliable.  | (100, 61, 20)      |
 | graspind_r         | The indices of grasped vertices of the right handle. Only valid if right handle is not released.Only first "graspnum_r" indices are avaliable. | (100, 61, 20)      |
-| circleclock        | Closewise or Anticlosewise. Only valid when the left handle is with circular motion.                                                           | (100,)             |
 | circletype         | Circular type of the motion. We drawing circle in different coordinate planes.                                                                 | (100,)             |
 | initSpeedEffector  | Speed of effetcor. Only valid in the pushing action task.                                                                                      | (100,)             |
 | initPosEffector    | The position and radius of creating sphere effector.                                                                                           | (100, 1, 4)        |
-| sampleflag         | The way of creating the sphere effector. 0 is near xxx, 1 is near xxx. Only valid in the pushing action task.                                  | (100,)             |
-| towardsflag        | The target of effector pushing. 0 is towards xxx, 1 is towards xxx. Only valid in the pushing action task.                                     | (100,)             |
+| sampleflag         | The way of creating the sphere effector. Only valid in the pushing action task.                                  | (100,)             |
+| towardsflag        | The target of effector pushing. Only valid in the pushing action task.                                     | (100,)             |
 | initActEffector    | Deprecated key.                                                                                                                                | (100, 1, 3)        |
-| circlemode         | Deprecated key.                                                                                                                                | (100,)             |
 | gripperspeed       | Deprecated key.                                                                                                                                | (100,)             |
 | posWall            | Deprecated key.                                                                                                                                | (100, 61, 5, 9)    |
+| circlemode         | Deprecated key.                                                                | (100,)             |
+| circleclock        | Deprecated key                                                           | (100,)             |
 
-## Circle Motion Label Mapping
+## Label Mapping
 
-## Sample Flag mapping
+The circle task parameter is only avaliable when the left handle is with circular movement.
 
-## Towards Flag mapping
+| circletype     | Description                                                                                                                                    |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0         | Draw the circle in x-z coordinate plane                                                                |
+| 1         | Draw the circle in x-y coordinate plane                                                                |
+| 2         | Draw the circle in z-y coordinate plane                                                                |                                                            |
+
+| sampleflag     | Description                                                                                                                                    |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0         | The sphere effector is created near a rigid sphere                                                                |
+| 1         | The sphere effector is created near the deformable bag                                                                |
+
+| towardsflag     | Description                                                                                                                                    |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0         | The sphere effector is moved towards a rigid sphere                                                                |
+| 1         | The sphere effector is moved towards the deformable bag                                                                |
 

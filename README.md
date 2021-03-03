@@ -12,6 +12,18 @@ The global graph attribute encodes action parameters.
 
 ## Prediction Models
 
+### Dynamics Module (PPM, APM)
+
 We propose a Position Prediction Module (PPM) and an Active Prediction Module (APM), both based on [graph nets](https://github.com/deepmind/graph_nets).
 The PPM predicts, given the current scene state, the state in the next time step while the APM classifies which vertices will move in the next time step.
 We compare a one-stage model (PPM alone) with a two-stage model (APM + PPM) and show the benefits of the two-stage approach.
+
+### Long Horizon Prediction
+
+The graph prediction models only predict the scene for a fixed prediction horizon ```h```. 
+To increase the prediction stability, we train a longer horizon model with a prediction horizon ```h=5```, 
+and a single time step model with a horizon ```h=1```. 
+By chaining these models recursively together, we make predictions for any time step. In this project, we compare the 
+mix-horizon model with the one-stage/two-stage model, and show the benefits of mix-horizon strategy.
+
+![mix-horizon prediction model](figures/mix-horizon-prediction.png)
