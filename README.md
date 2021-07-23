@@ -88,3 +88,7 @@ python ValidVisualizer.py --task_index 1 --set_name test --model two-stage
 # mix-horizon
 python ValidVisualizer.py --task_index 1 --set_name test --model horizon
 ```
+
+### Obj files for deformable bag simulation
+We release the bag meshes built from scratch for deformable object simulation. All meshes are built in blender from scratch. We study one specific bag in our IROS paper. Please also cite the paper if you use these models in your research. Here's the link to the [bag mesh repo](https://kth.box.com/shared/static/jzl6la0n7e0xn5mnu3n639e0e9jcvi31.zip).
+
