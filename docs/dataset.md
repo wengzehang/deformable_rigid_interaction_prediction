@@ -13,7 +13,7 @@ which results in 60,000 recorded time steps.
 The simulated task data is split into training (80\%), validation (10\%), and test set (10\%).
 We vary actions and task parameters to create data for 20 different tasks.
 
-The complete dataset can be downloaded here: https://kth.box.com/s/q4m2z0retfygq5kbai5innfeh55p9mst
+The complete dataset can be downloaded here: https://kth-my.sharepoint.com/:f:/g/personal/zehang_ug_kth_se/EvUoLXferkVJj2Lgilcoh24Bm3nZn8KgzN4zeBQ3cBxEiA?e=sThBjp
 
 
 ## Tasks
